@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 Nx = 4096
 xmax = np.pi
 
+
 # Set up grid
 space = odl.uniform_discr(min_pt=0, max_pt=xmax, shape=Nx, dtype='float64')
 cosine = trig_transform(space, 'cosine')
