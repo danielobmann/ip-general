@@ -83,6 +83,9 @@ plt.semilogy(err)
 q = 0.95
 C = np.diag(q ** np.arange(0, n))
 x0 = np.ones(n)
+x1 = np.ones(n)
+x1[100:] = 0
 xcg, err = CGNE_numpy(x0, C, rhs=np.zeros_like(x0), niter=niter, return_error=True)
+xcg1, err1 = CGNE_numpy(x1, C, rhs=np.zeros_like(x0), niter=niter, return_error=True)
 plt.semilogy(err)
 """
