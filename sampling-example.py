@@ -24,12 +24,18 @@ plt.plot(xs, sinc(xs, b=20))
 plt.title("Samples of sinc")
 
 plt.figure()
-plt.plot(xs, sinc(xs, b=21))
-plt.plot(xs, sinc(xs, b=-19) + 2*sinc(xs, b=20))
-plt.title("Aliasing example")
+plt.plot(xs, sinc(xs, b=41))
+plt.plot(xs, sinc(xs, b=1) + 2 * sinc(xs, b=20))
+plt.title("Same samples of different functions")
+
+xslarge = np.linspace(-2 * np.pi, 2 * np.pi, 2 ** 14)
+plt.figure()
+plt.plot(xslarge, sinc(xslarge, b=41))
+plt.plot(xslarge, sinc(xslarge, b=1) + 2 * sinc(xslarge, b=20))
+plt.title("Result of aliasing")
 
 """
 Note that b chosen such that dx = pi/b yields a delta peak. Moreover aliasing can be observed whenever b is chosen
-too large, i.e. b > 20. In this case we get the "folding in" of the frequencies and a sinc with b = 21 results in
+too large, i.e. b > 20. In this case we get the "folding in" of the frequencies and a sinc with b >= 21 results in
 aliasing and it cannot be distinguished from a sum of lower frequency sincs.
 """
